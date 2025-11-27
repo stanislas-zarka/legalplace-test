@@ -1,6 +1,6 @@
-import { Drug, Pharmacy } from "./pharmacy";
-
 import fs from "fs";
+
+import { Drug, Pharmacy } from "./pharmacy.js";
 
 const drugs = [
   new Drug("Doliprane", 20, 30),
@@ -16,7 +16,7 @@ for (let elapsedDays = 0; elapsedDays < 30; elapsedDays++) {
   log.push(JSON.parse(JSON.stringify(pharmacy.updateBenefitValue())));
 }
 
-/* eslint-disable no-console */
+ 
 fs.writeFile(
   "output.json",
   JSON.stringify({ result: log }, null, 2).concat("\n"),
@@ -28,5 +28,3 @@ fs.writeFile(
     }
   },
 );
-
-/* eslint-enable no-console */
