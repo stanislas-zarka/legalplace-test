@@ -16,7 +16,6 @@ for (let elapsedDays = 0; elapsedDays < 30; elapsedDays++) {
   log.push(JSON.parse(JSON.stringify(pharmacy.updateBenefitValue())));
 }
 
- 
 fs.writeFile(
   "output.json",
   JSON.stringify({ result: log }, null, 2).concat("\n"),
