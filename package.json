@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "eslint .",
     "test": "jest",
-    "start": "babel-node index.js"
+    "start": "babel-node src/index.js"
   },
   "devDependencies": {
     "eslint-define-config": "^2.1.0",
@@ -21,7 +21,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "jest": "^30.2.0",
-    "prettier": "^3.7.0",
+    "prettier": "^3.7.1",
     "regenerator-runtime": "^0.14.1"
   },
   "engines": {
