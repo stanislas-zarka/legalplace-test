@@ -1,4 +1,4 @@
-import { types } from "./types.js";
+import { types } from './types.js';
 
 export function createDrug(data) {
   return (types[data.name] ?? baseDrug)(data);

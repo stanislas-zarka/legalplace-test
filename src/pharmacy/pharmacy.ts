@@ -1,5 +1,9 @@
+import type { Drug } from '../drugs/types.ts';
+
 export class Pharmacy {
-  constructor(drugs = []) {
+  drugs: Drug[];
+
+  constructor(drugs: Drug[] = []) {
     this.drugs = drugs;
   }
 

@@ -1,5 +1,18 @@
-export const types = {
-  'Herbal Tea': ({ name, expiresIn, benefit }) => ({
+export interface DrugData {
+  name: string;
+  expiresIn: number;
+  benefit: number;
+}
+
+export interface Drug {
+  name: string;
+  expiresIn: number;
+  benefit: number;
+  update(): void;
+}
+
+export const types: Record<string, (data: DrugData) => Drug> = {
+  'Herbal Tea': ({ name, expiresIn, benefit }: DrugData) => ({
     name,
     expiresIn,
     benefit,
@@ -9,7 +22,7 @@ export const types = {
     },
   }),
 
-  Fervex: ({ name, expiresIn, benefit }) => ({
+  Fervex: ({ name, expiresIn, benefit }: DrugData) => ({
     name,
     expiresIn,
     benefit,
@@ -28,7 +41,7 @@ export const types = {
     },
   }),
 
-  'Magic Pill': ({ name, expiresIn, benefit }) => ({
+  'Magic Pill': ({ name, expiresIn, benefit }: DrugData) => ({
     name,
     expiresIn,
     benefit,

@@ -1,38 +1,28 @@
-import { defineConfig } from "eslint-define-config";
-import babelParser from "@babel/eslint-parser";
-import prettierPlugin from "eslint-plugin-prettier";
-import prettierConfig from "eslint-config-prettier";
+import tsParser from '@typescript-eslint/parser';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
 
-export default defineConfig({
-  languageOptions: {
-    parser: babelParser,
-    parserOptions: {
-      requireConfigFile: false,
-      ecmaVersion: 2020,
-      sourceType: "module",
+export default [
+  {
+    ignores: ['dist', 'node_modules'],
+  },
+  {
+    files: ['**/*.ts'],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        project: './tsconfig.json',
+      },
     },
-    globals: {
-      // Node.js globals
-      process: "readonly",
-      __dirname: "readonly",
-      module: "readonly",
-      require: "readonly",
-      console: "readonly",
-      // Jest globals
-      describe: "readonly",
-      test: "readonly",
-      expect: "readonly",
-      beforeEach: "readonly",
-      afterEach: "readonly",
+    plugins: { '@typescript-eslint': tsPlugin },
+    rules: {
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/consistent-type-imports': 'error',
+      eqeqeq: ['error', 'always'],
+      'no-console': 'warn',
+      'prefer-const': 'error',
     },
   },
-  rules: {
-    ...prettierConfig.rules,
-  },
-  plugins: {
-    prettier: prettierPlugin,
-  },
-  linterOptions: {
-    reportUnusedDisableDirectives: "warn",
-  },
-});
+];

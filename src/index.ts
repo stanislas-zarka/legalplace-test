@@ -1,8 +1,8 @@
-import fs from 'fs/promises';
-import { Pharmacy } from './pharmacy/pharmacy.js';
-import { createDrug } from './drugs/factory.js';
+import { writeFile } from 'fs/promises';
+import { Pharmacy } from './pharmacy/pharmacy.ts';
+import { createDrug } from './drugs/factory.ts';
 
-async function simulate(days = 30) {
+export async function simulate(days = 30) {
   const drugs = [
     createDrug({ name: 'Doliprane', expiresIn: 20, benefit: 30 }),
     createDrug({ name: 'Herbal Tea', expiresIn: 10, benefit: 5 }),
@@ -11,15 +11,18 @@ async function simulate(days = 30) {
   ];
 
   const pharmacy = new Pharmacy(drugs);
-  const log = [];
+  const log: Array<Array<Record<string, unknown>>> = [];
 
   for (let day = 0; day < days; day++) {
     const updated = pharmacy.updateBenefitValue();
     log.push(updated.map((drug) => ({ ...drug })));
   }
 
-  await fs.writeFile('./output.json', JSON.stringify({ result: log }, null, 2));
+  await writeFile('./output.json', JSON.stringify({ result: log }, null, 2));
+  // eslint-disable-next-line no-console
   console.log('Simulation complete');
 }
 
+// eslint-disable-next-line no-console
+console.log('Starting simulation for 30 days...');
 simulate();
