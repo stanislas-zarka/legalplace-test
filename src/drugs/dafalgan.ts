@@ -7,20 +7,16 @@ export class Dafalgan extends Drug {
 
   update() {
     this.expiresIn -= 1;
-
-    // Dégradation normale
+    // Base degradation rate for a normal drug
     let degradation = 1;
-
-    // Si expire date passée, double la dégradation
+    // If the drug is past its expiration date, double the degradation
     if (this.expiresIn < 0) {
       degradation *= 2;
     }
-
-    // Comme Dafalgan se dégrade deux fois plus vite que normal
+    // Dafalgan degrades twice as fast as a normal drug
     degradation *= 2;
-
+    // Apply the calculated degradation to the benefit
     this.benefit -= degradation;
-
     this.clampBenefit();
   }
 }
