@@ -5,23 +5,20 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "ts-node --esm src/index.ts",
-    "build": "tsc",
-    "start": "node dist/src/index.js",
-    "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "test": "jest --no-cache"
+    "start": "ts-node --esm src/index.ts",
+    "test": "NODE_OPTIONS='--loader ts-node/esm' jest --no-cache"
   },
   "devDependencies": {
     "@types/jest": "30",
     "@types/node": "^24.10.1",
-    "@typescript-eslint/eslint-plugin": "^8.48.0",
-    "@typescript-eslint/parser": "^8.48.0",
+    "@typescript-eslint/eslint-plugin": "^8.48.1",
+    "@typescript-eslint/parser": "^8.48.1",
     "eslint": "^9.39.1",
     "jest": "30",
-    "prettier": "^3.7.1",
+    "prettier": "^3.7.3",
     "ts-jest": "29",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"

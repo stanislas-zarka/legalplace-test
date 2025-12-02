@@ -1,13 +1,16 @@
 import { writeFile } from 'fs/promises';
 import { Pharmacy } from './pharmacy/pharmacy.ts';
-import { createDrug } from './drugs/factory.ts';
+import { Drug } from './drugs/drug.ts';
+import { HerbalTea } from './drugs/herbalTea.ts';
+import { Fervex } from './drugs/fervex.ts';
+import { MagicPill } from './drugs/magicPill.ts';
 
 export async function simulate(days = 30) {
   const drugs = [
-    createDrug({ name: 'Doliprane', expiresIn: 20, benefit: 30 }),
-    createDrug({ name: 'Herbal Tea', expiresIn: 10, benefit: 5 }),
-    createDrug({ name: 'Fervex', expiresIn: 12, benefit: 35 }),
-    createDrug({ name: 'Magic Pill', expiresIn: 15, benefit: 40 }),
+    new Drug('Doliprane', 20, 30),
+    new HerbalTea(10, 5),
+    new Fervex(12, 35),
+    new MagicPill(15, 40),
   ];
 
   const pharmacy = new Pharmacy(drugs);

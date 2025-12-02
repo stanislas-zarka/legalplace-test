@@ -1,4 +1,4 @@
-import type { Drug } from '../drugs/types.ts';
+import type { Drug } from '../drugs/drug.ts';
 
 export class Pharmacy {
   drugs: Drug[];
