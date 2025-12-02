@@ -5,10 +5,10 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "start": "ts-node --esm src/index.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "start": "ts-node --esm src/index.ts",
     "test": "NODE_OPTIONS='--loader ts-node/esm' jest --no-cache"
   },
   "devDependencies": {

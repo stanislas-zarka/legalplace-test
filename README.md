@@ -4,10 +4,7 @@ This document provides a concise description of the project's tooling and config
 
 ## Scripts
 
-- **dev** — Runs the TypeScript source using `ts-node` in ESM mode.
-- **build** — Compiles the TypeScript codebase to JavaScript using `tsc`.
 - **start** — Executes the compiled application from `dist/`. Used to generate `output.json`.
-- **typecheck** — Performs type-checking without emitting output.
 - **lint** — Runs ESLint across the project.
 - **lint:fix** — Applies automatic fixes using ESLint.
 - **format** — Formats files using Prettier.
